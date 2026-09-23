@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Restaurant Panel</title>
+  <link rel="stylesheet" href="styles/base.css">
+<link rel="stylesheet" href="styles/food.css">
+<link rel="stylesheet" href="styles/food-form.css">
+<link rel="stylesheet" href="styles/wallet.css">
+<link rel="stylesheet" href="styles/profile.css">
+<link rel="stylesheet" href="styles/sidebar.css">
+<link rel="stylesheet" href="styles/home.css">
+<link rel="stylesheet" href="styles/location.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+<body>
+
+<div class="app">
+
+  <!-- SIDEBAR -->
+  <div class="sidebar" id="sidebar">
+
+    <div class="sidebar-top">
+      <div class="sidebar-header">
+        <img class="avatar-small" id="sidebarImg" src="/assets/default.png" />
+        <div class="restro-name">Restaurant</div>
+        <button class="sidebar-close" onclick="toggleSidebar()">←</button>
+      </div>
+    </div>
+
+    <div class="sidebar-menu">
+      <div class="menu-item" data-page="home" onclick="loadPage('home')">🏠 Home</div>
+      <div class="menu-item" data-page="food" onclick="loadPage('food')">🍽 Food Items</div>
+      <div class="menu-item" data-page="wallet" onclick="loadPage('wallet')">💰 Wallet</div>
+      <div class="menu-item" data-page="profile" onclick="loadPage('profile')">👤 Profile</div>
+      <div class="menu-item" data-page="location" onclick="loadPage('location')">📍 Location</div>
+      <div class="menu-item" data-page="notification" onclick="loadPage('notification')">🔔 Notification</div>
+      <div class="menu-item logout" onclick="logout()">🚪 Logout</div>
+    </div>
+
+  </div>
+
+  <div id="overlay" onclick="toggleSidebar()"></div>
+
+  <!-- MAIN -->
+  <div class="main">
+
+    <div class="topbar">
+      <span class="menu-btn" onclick="toggleSidebar()">☰</span>
+
+      <div class="center">
+        <img src="/assets/logo.png" class="logo">
+        <div class="text">
+          <div>Food delivery</div>
+          <div>in a chutki</div>
+        </div>
+      </div>
+
+      <div class="right">
+        🔔 0
+        <div class="toggle-wrapper">
+          <label class="switch">
+            <input type="checkbox" id="statusToggle">
+            <span class="slider"></span>
+          </label>
+          <span id="statusText">OFFLINE</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-header">
+      <div id="pageTitle">HOME</div>
+      <button onclick="loadPage('home')">← Back</button>
+    </div>
+
+    <div class="content" id="content">Loading...</div>
+
+  </div>
+
+</div>
+
+<script src="/shared/session.js"></script>
+<script src="/shared/api.js"></script>
+<script src="restaurant.js"></script>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</body>
+</html>

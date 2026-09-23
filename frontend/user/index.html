@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User Panel</title>
+  <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="styles/categories.css">
+<link rel="stylesheet" href="styles/food.css">
+<link rel="stylesheet" href="styles/cart.css">
+<link rel="stylesheet" href="styles/orders.css">
+<link rel="stylesheet" href="styles/sidebar.css">
+<link rel="stylesheet" href="styles/address.css">
+<link rel="stylesheet" href="styles/profile.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+<body>
+
+<div class="app">
+
+  <!-- SIDEBAR -->
+  <div class="sidebar" id="sidebar">
+
+    <div class="sidebar-top">
+      <div class="sidebar-header">
+        <div class="avatar-small"></div>
+        <div class="restro-name">User</div>
+        <button onclick="toggleSidebar()">←</button>
+      </div>
+    </div>
+
+    <div class="sidebar-menu">
+      <div class="menu-item" onclick="loadPage('home')">🏠 Home</div>
+      <div class="menu-item" onclick="loadPage('orders')">📦 Orders</div>
+      <div class="menu-item" onclick="loadPage('address')">📍 Address</div>
+      <div class="menu-item" onclick="loadPage('profile')">👤 Profile</div>
+      <div class="menu-item" onclick="loadPage('support')">🛠 Support</div>
+      <div onclick="logout()">🚪 Logout</div>
+    </div>
+
+  </div>
+
+  <div id="overlay" onclick="toggleSidebar()"></div>
+
+
+  <!-- MAIN -->
+  <div class="main">
+
+    <!-- TOPBAR -->
+    <div class="topbar">
+
+      <div class="left">
+        <span class="menu-btn" onclick="toggleSidebar()">☰</span>
+      </div>
+
+      <div class="center">
+        <img src="/assets/logo.png" class="logo">
+        <div class="text">
+          <div>Food delivery</div>
+          <div>in a chutki</div>
+        </div>
+      </div>
+
+      <div class="right">
+        🔔 0
+        <span onclick="loadPage('cart')" style="cursor:pointer;">🛒</span>
+      </div>
+
+    </div>
+
+    <div class="page-header">
+      <div id="pageTitle">HOME</div>
+        <div id="guestActions"></div>
+    </div>
+
+    <div class="content" id="content"></div>
+
+  </div>
+
+</div>
+
+<script src="/shared/session.js"></script>
+<script src="/shared/api.js"></script>
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="user.js"></script>
+</body>
+</html>

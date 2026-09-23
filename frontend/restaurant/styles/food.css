@@ -1,0 +1,103 @@
+
+/* ================= FOOD GRID ================= */
+.food-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+/* ================= FOOD CARD ================= */
+.food-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  transition: 0.2s;
+}
+
+.food-card:hover {
+  transform: translateY(-3px);
+}
+
+/* ================= IMAGE ================= */
+.food-img-wrapper {
+  position: relative;
+}
+
+.food-img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+}
+
+/* ================= TOGGLE ON IMAGE ================= */
+.food-toggle-top {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 2;
+}
+
+/* ================= BODY ================= */
+.food-body {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* TITLE */
+.food-title {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* PRICE */
+.food-price {
+  font-size: 13px;
+  color: #444;
+  font-weight: 500;
+}
+
+/* ================= ACTIONS ================= */
+.food-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.food-actions button {
+  flex: 1;
+  padding: 7px;
+  font-size: 12px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+/* EDIT */
+.food-actions button:first-child {
+  background: #f1f1f1;
+}
+
+/* DELETE */
+.food-actions button:last-child {
+  background: #ffebee;
+  color: #e53935;
+}
+
+/* ================= ADD FOOD BUTTON ================= */
+.add-food-btn {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  background: white;
+  cursor: pointer;
+  font-size: 13px;
+  transition: 0.2s;
+}
+
+.add-food-btn:hover {
+  background: #f5f5f5;
+}
+

@@ -1,0 +1,124 @@
+.management-header,
+.management-list,
+.management-error {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.08);
+}
+
+.management-header {
+  padding: 22px;
+  margin-bottom: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+.management-header h2 {
+  margin: 0 0 6px;
+}
+
+.management-header p {
+  margin: 0;
+  color: #777;
+}
+
+.management-list {
+  overflow: hidden;
+}
+
+.management-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  padding: 18px 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.management-row:last-child {
+  border-bottom: 0;
+}
+
+.row-main {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.row-main strong {
+  font-size: 18px;
+}
+
+.row-main small {
+  color: #777;
+}
+
+.row-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.online-status {
+  color: #168344;
+  font-weight: bold;
+}
+
+.offline-status {
+  color: #999;
+  font-weight: bold;
+}
+
+.offline-row {
+  opacity: .48;
+}
+
+.management-row button,
+.refresh-btn {
+  border: 0;
+  border-radius: 8px;
+  padding: 9px 12px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.refresh-btn {
+  background: #e53935;
+  color: white;
+}
+
+.danger-btn {
+  background: #b71c1c;
+  color: white;
+}
+
+.management-error {
+  padding: 30px;
+  color: #c62828;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+@media (max-width: 600px) {
+  .management-header {
+    align-items: flex-start;
+  }
+
+  .management-row {
+    align-items: flex-start;
+  }
+
+  .row-status {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .row-status button {
+    width: 100%;
+  }
+}

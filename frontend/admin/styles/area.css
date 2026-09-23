@@ -1,0 +1,564 @@
+/* =========================================
+   SERVICEABLE AREA
+========================================= */
+
+.area-page {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+.area-heading {
+  margin-bottom: 18px;
+}
+
+.area-heading h2 {
+  margin: 0;
+  color: #171717;
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.area-heading p {
+  margin: 6px 0 0;
+  color: #777;
+  font-size: 14px;
+}
+
+/* =========================================
+   MAP + EDITOR
+========================================= */
+
+.area-map-section {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  margin-bottom: 24px;
+  overflow: hidden;
+  border-radius: 16px;
+  background: #f4f4f4;
+  box-shadow: 0 3px 14px rgba(0, 0, 0, 0.10);
+}
+
+.area-map {
+  flex: 1 1 auto;
+  width: 100%;
+  height: 360px;
+  min-width: 0;
+}
+
+/* =========================================
+   ADD CIRCLE
+========================================= */
+
+.map-add-circle {
+  position: absolute;
+  left: 16px;
+  bottom: 16px;
+  z-index: 1000;
+
+  border: 0;
+  border-radius: 10px;
+  padding: 12px 18px;
+
+  background: #e53935;
+  color: #fff;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  cursor: pointer;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.22);
+}
+
+.map-add-circle:active {
+  transform: scale(0.98);
+}
+
+/* =========================================
+   MAP MODE
+========================================= */
+
+.map-mode {
+  position: absolute;
+  left: 50%;
+  top: 16px;
+  transform: translateX(-50%);
+  z-index: 1000;
+
+  padding: 9px 15px;
+  border-radius: 20px;
+
+  background: #222;
+  color: #fff;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* =========================================
+   CIRCLE EDITOR - RIGHT SIDE
+========================================= */
+
+.circle-editor {
+  flex: 0 0 320px;
+  width: 320px;
+  min-width: 320px;
+
+  position: relative;
+  z-index: 1100;
+
+  background: #fff;
+  border-left: 1px solid #eee;
+
+  overflow: hidden;
+}
+
+.circle-editor-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 15px 16px;
+
+  background: #fff;
+  border-bottom: 1px solid #eee;
+}
+
+.circle-editor-header strong {
+  display: block;
+  color: #222;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.circle-editor-header span {
+  display: block;
+  margin-top: 3px;
+  color: #888;
+  font-size: 11px;
+}
+
+.icon-btn {
+  width: 32px;
+  height: 32px;
+
+  border: 0;
+  border-radius: 50%;
+
+  background: #f1f1f1;
+  color: #333;
+
+  font-size: 20px;
+  line-height: 32px;
+
+  cursor: pointer;
+}
+
+.circle-editor-body {
+  padding: 18px 16px;
+}
+
+.circle-editor-body label {
+  display: block;
+  margin-bottom: 7px;
+
+  color: #555;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.radius-input-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.radius-input-row input {
+  width: 100%;
+  box-sizing: border-box;
+
+  padding: 11px 12px;
+
+  border: 1px solid #ddd;
+  border-radius: 8px;
+
+  background: #fff;
+  color: #222;
+
+  font-size: 14px;
+}
+
+.radius-input-row span {
+  color: #777;
+  font-size: 13px;
+}
+
+.radius-slider {
+  width: 100%;
+  margin: 15px 0 18px;
+}
+
+.editor-coordinates {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+
+  margin-bottom: 18px;
+}
+
+.editor-coordinates > div {
+  padding: 10px;
+
+  border-radius: 8px;
+  background: #f7f7f7;
+}
+
+.editor-coordinates span {
+  display: block;
+  margin-bottom: 4px;
+
+  color: #888;
+  font-size: 9px;
+  font-weight: 600;
+}
+
+.editor-coordinates strong {
+  display: block;
+
+  color: #333;
+  font-size: 11px;
+
+  word-break: break-all;
+}
+
+.circle-editor-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.area-btn {
+  border: 0;
+  border-radius: 8px;
+  padding: 11px 12px;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.area-btn.primary {
+  background: #e53935;
+  color: #fff;
+}
+
+.area-btn.success {
+  background: #16a34a;
+  color: #fff;
+}
+
+.area-btn.danger {
+  background: #dc2626;
+  color: #fff;
+}
+
+.area-btn:not(.primary):not(.success):not(.danger) {
+  background: #eee;
+  color: #222;
+}
+
+/* =========================================
+   AREA LIST
+========================================= */
+
+.area-list-section {
+  overflow: hidden;
+
+  background: #fff;
+  border-radius: 16px;
+
+  box-shadow: 0 3px 14px rgba(0, 0, 0, 0.08);
+}
+
+.area-list-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 18px 20px;
+
+  border-bottom: 1px solid #eee;
+}
+
+.area-list-heading h3 {
+  display: inline;
+  margin: 0;
+
+  color: #222;
+  font-size: 18px;
+}
+
+.area-list-heading span {
+  display: inline-block;
+
+  min-width: 24px;
+  margin-left: 8px;
+  padding: 3px 7px;
+
+  text-align: center;
+
+  border-radius: 12px;
+  background: #f1f1f1;
+
+  color: #666;
+  font-size: 11px;
+}
+
+.area-list {
+  padding: 8px 12px 12px;
+}
+
+.area-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 12px;
+
+  margin: 6px 0;
+  padding: 10px;
+
+  border: 1px solid #eee;
+  border-radius: 10px;
+
+  background: #fff;
+
+  transition: 0.15s ease;
+}
+
+.area-row:hover {
+  border-color: #ddd;
+  background: #fafafa;
+}
+
+.area-row.active {
+  border-color: #e53935;
+  background: #fff5f5;
+}
+
+.area-name-btn {
+  flex: 1;
+  min-width: 0;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 5px;
+
+  border: 0;
+  background: transparent;
+
+  text-align: left;
+  cursor: pointer;
+}
+
+.area-number {
+  color: #888;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.area-name {
+  overflow: hidden;
+
+  color: #222;
+  font-size: 14px;
+  font-weight: 700;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.area-circle-count {
+  flex-shrink: 0;
+
+  padding: 4px 8px;
+
+  border-radius: 12px;
+  background: #f1f1f1;
+
+  color: #777;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.area-row.active .area-circle-count {
+  background: #e53935;
+  color: #fff;
+}
+
+.area-row-actions {
+  display: flex;
+  flex-shrink: 0;
+  gap: 6px;
+}
+
+.area-small-btn {
+  border: 0;
+  border-radius: 7px;
+  padding: 7px 10px;
+
+  font-size: 10px;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.area-small-btn.edit {
+  background: #eee;
+  color: #222;
+}
+
+.area-small-btn.delete {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+/* =========================================
+   LEAFLET
+========================================= */
+
+.area-map .leaflet-control-zoom {
+  margin: 12px;
+}
+
+.area-map .leaflet-control-attribution {
+  font-size: 9px;
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+  .area-page {
+    padding: 14px;
+  }
+
+  .area-heading {
+    margin-bottom: 14px;
+  }
+
+  .area-heading h2 {
+    font-size: 22px;
+  }
+
+  .area-heading p {
+    font-size: 13px;
+  }
+
+  /* Map first */
+  .area-map-section {
+    display: flex;
+    flex-direction: column;
+    border-radius: 14px;
+  }
+
+  .area-map {
+    flex: none;
+    width: 100%;
+    height: 300px;
+  }
+
+  /* Editor below map on mobile */
+  .circle-editor {
+    flex: none;
+    width: 100%;
+    min-width: 0;
+
+    border-top: 1px solid #eee;
+    border-left: 0;
+  }
+
+  .map-add-circle {
+    left: auto;
+    right: 12px;
+    bottom: 12px;
+
+    padding: 11px 14px;
+  }
+
+  .area-list-heading {
+    padding: 15px;
+  }
+
+  .area-list-heading h3 {
+    font-size: 17px;
+  }
+
+  .area-row {
+    align-items: center;
+    gap: 7px;
+  }
+
+  .area-name-btn {
+    flex-wrap: wrap;
+  }
+
+  .area-name {
+    max-width: 120px;
+  }
+
+  .area-row-actions {
+    gap: 5px;
+  }
+
+  .area-small-btn {
+    padding: 7px 8px;
+  }
+}
+
+/* =========================================
+   SMALL PHONES
+========================================= */
+
+@media (max-width: 430px) {
+
+  .area-page {
+    padding: 10px;
+  }
+
+  .area-map {
+    height: 280px;
+  }
+
+  .circle-editor-body {
+    padding: 15px;
+  }
+
+  .area-row {
+    padding: 9px;
+  }
+
+  .area-name {
+    max-width: 100px;
+  }
+
+  .area-small-btn {
+    padding: 6px 7px;
+    font-size: 9px;
+  }
+}

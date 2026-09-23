@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <title>Admin Home - Chutki</title>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="styles/sidebar.css">
+  <link rel="stylesheet" href="styles/dashboard.css">
+  <link rel="stylesheet" href="styles/users.css">
+  <link rel="stylesheet" href="styles/riders.css">
+  <link rel="stylesheet" href="styles/restaurants.css">
+  <link rel="stylesheet" href="styles/food.css">
+  <link rel="stylesheet" href="styles/orders.css">
+  <link rel="stylesheet" href="styles/requests.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+
+<body>
+
+<div class="app">
+
+  <div id="sidebar-container"></div>
+
+  <div class="main">
+
+    <div class="topbar">
+
+      <div class="left">
+        <button class="menu-btn"
+                onclick="toggleSidebar()">
+          ☰
+        </button>
+      </div>
+
+      <div class="center">
+        <img src="/assets/logo.png"
+             class="logo"
+             alt="Chutki">
+
+        <div class="topbar-text">
+          <div>Admin Panel</div>
+          <div>Chutki</div>
+        </div>
+      </div>
+
+      <div class="right"></div>
+
+    </div>
+
+    <div class="page-header">
+      <div id="pageTitle">HOME</div>
+    </div>
+
+    <main class="content" id="content"></main>
+
+  </div>
+
+</div>
+
+<script src="/shared/session.js"></script>
+<script src="/shared/api.js"></script>
+<script type="module" src="admin.js"></script>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</body>
+</html>

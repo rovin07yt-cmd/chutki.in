@@ -1,0 +1,104 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f6f6f6;
+  overflow-y: auto;
+}
+
+/* HEADER */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 60px;
+  margin-bottom: 20px;
+}
+
+/* LOGO */
+.logo {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* TEXT */
+.text {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.subtitle {
+  font-size: 13px;
+  color: #777;
+}
+
+/* CONTAINER */
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+/* CARD */
+.card {
+  width: 90%;
+  max-width: 360px;
+  background: white;
+  padding: 22px;
+  border-radius: 18px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+
+/* INPUTS */
+select, input {
+  width: 100%;
+  padding: 13px;
+  margin-bottom: 14px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  background: #fafafa;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border: 1px solid #e53935;
+  background: #fff;
+}
+
+/* BUTTON */
+button {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  background: #e53935;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 5px;
+  box-shadow: 0 4px 10px rgba(229,57,53,0.3);
+}
+
+/* LINKS */
+.link {
+  text-align: center;
+  margin-top: 16px;
+  font-size: 14px;
+}
+
+.link span {
+  color: #e53935;
+  font-weight: bold;
+}

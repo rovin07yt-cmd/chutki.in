@@ -1,0 +1,174 @@
+   RESTAURANT WALLET
+   ============================================================ */
+
+.wallet-restaurant-detail {
+  max-width: 1000px;
+}
+
+.wallet-restaurant-detail .wallet-detail-section {
+  margin-top: 18px;
+}
+
+.wallet-detail-section-title {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.wallet-bank-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.wallet-bank-grid > div {
+  padding: 14px;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.wallet-bank-grid span,
+.wallet-payment-pending span {
+  display: block;
+  font-size: 12px;
+  color: #6b7280;
+  margin-bottom: 5px;
+}
+
+.wallet-bank-grid strong {
+  display: block;
+  font-size: 14px;
+  word-break: break-word;
+}
+
+.wallet-payment-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.wallet-payment-pending {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.wallet-payment-pending strong {
+  font-size: 20px;
+}
+
+.wallet-payment-form {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 1fr)
+    auto;
+  gap: 12px;
+  align-items: end;
+}
+
+.wallet-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.wallet-form-group label {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.wallet-form-group input,
+.wallet-form-group select {
+  width: 100%;
+  min-height: 42px;
+  padding: 9px 11px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.wallet-primary-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.wallet-history-empty {
+  text-align: center;
+  padding: 20px !important;
+  color: #6b7280;
+}
+
+.wallet-person-image {
+  width: 42px;
+  height: 42px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+@media (max-width: 700px) {
+
+  .wallet-bank-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .wallet-payment-form {
+    grid-template-columns: 1fr;
+  }
+
+  .wallet-payment-form
+  .wallet-primary-btn {
+    width: 100%;
+  }
+
+  .wallet-payment-pending {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+}
+
+/* =========================================
+   RESTAURANT WALLET CARDS
+   Same card layout as Rider Wallet
+========================================= */
+
+.wallet-restaurant-card {
+  width: 100%;
+}
+
+.wallet-restaurant-card
+.wallet-card-balances {
+  grid-template-columns: 1fr;
+}
+
+.wallet-restaurant-card
+.wallet-card-balance {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 600px) {
+  .wallet-restaurant-card
+  .wallet-card-balances {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Restaurant wallet cards use the same balance layout as rider cards */
+.wallet-restaurant-card .wallet-card-balances {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@media (max-width: 600px) {
+  .wallet-restaurant-card .wallet-card-balances {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

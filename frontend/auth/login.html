@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login</title>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- disable cache -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+</head>
+
+<body>
+
+<div class="header">
+  <img src="./images/logo.png" class="logo">
+  <div class="text">
+    <div class="title">Chutki</div>
+    <div class="subtitle">Food Delivery in a Chutki</div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="card">
+
+    <!-- ROLE -->
+    <select id="role">
+      <option value="user">User</option>
+      <option value="restaurant">Restaurant</option>
+      <option value="rider">Rider</option>
+      <option value="workwithus">Work With Us</option>
+      <option value="admin">Admin</option>
+    </select>
+
+    <!-- LOGIN -->
+    <input id="login_id" oninput="this.value = this.value.toLowerCase()" placeholder="Email or Phone">
+    <input id="password" type="password" placeholder="Password">
+
+    <button type="button" onclick="login()">Login</button>
+
+    <div class="link">
+      New user? <span onclick="location.href='register.html'">Register</span>
+    </div>
+
+  </div>
+</div>
+
+<!-- ONLY ONE SCRIPT -->
+<script src="/auth/auth.js?v=5000"></script>
+
+</body>
+</html>

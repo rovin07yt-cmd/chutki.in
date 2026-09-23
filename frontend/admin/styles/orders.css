@@ -1,0 +1,237 @@
+.management-page {
+  width: 100%;
+}
+
+.management-toolbar {
+  background: #fff;
+  border-radius: 10px;
+  padding: 18px;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.08);
+}
+
+.management-toolbar h2 {
+  margin: 0 0 5px;
+}
+
+.management-toolbar p {
+  margin: 0;
+  color: #777;
+}
+
+.toolbar-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.primary-btn,
+.secondary-btn,
+.small-btn {
+  border: none;
+  border-radius: 7px;
+  padding: 9px 13px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.primary-btn {
+  background: #e53935;
+  color: #fff;
+}
+
+.secondary-btn {
+  background: #eee;
+  color: #333;
+}
+
+.small-btn {
+  background: #e53935;
+  color: white;
+  font-size: 12px;
+}
+
+.assign-btn {
+  background: #333;
+}
+
+.orders-table-wrap {
+  background: #fff;
+  border-radius: 10px;
+  overflow-x: auto;
+  box-shadow: 0 2px 8px rgba(0,0,0,.08);
+}
+
+.management-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 850px;
+}
+
+.management-table th,
+.management-table td {
+  padding: 13px;
+  border-bottom: 1px solid #eee;
+  text-align: left;
+}
+
+.management-table th {
+  background: #f7f7f7;
+  font-size: 13px;
+}
+
+.management-table td small {
+  display: block;
+  margin-top: 4px;
+  color: #888;
+}
+
+.status-badge,
+.dispatch-badge {
+  display: inline-block;
+  padding: 5px 8px;
+  border-radius: 6px;
+  background: #f1f1f1;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.no-rider {
+  color: #999;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 6px;
+}
+
+.management-loading,
+.empty-management {
+  background: #fff;
+  padding: 40px;
+  text-align: center;
+  color: #777;
+  border-radius: 10px;
+}
+
+/* ================= MODAL ================= */
+
+.management-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(0,0,0,.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+}
+
+.modal-box {
+  width: min(600px, 100%);
+  max-height: 90vh;
+  overflow-y: auto;
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.modal-header h3 {
+  margin: 0;
+}
+
+.modal-close {
+  border: none;
+  background: transparent;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.order-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.order-detail-grid div {
+  padding: 12px;
+  background: #f7f7f7;
+  border-radius: 8px;
+}
+
+.order-detail-grid label,
+.order-detail-grid strong {
+  display: block;
+}
+
+.order-detail-grid label {
+  color: #777;
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+
+.rider-selection-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.rider-option {
+  border: 1px solid #ddd;
+  background: #fff;
+  border-radius: 8px;
+  padding: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  text-align: left;
+}
+
+.rider-option:hover {
+  background: #f7f7f7;
+}
+
+.rider-option span,
+.rider-option small {
+  display: block;
+}
+
+.rider-option small {
+  margin-top: 4px;
+  color: #777;
+}
+
+.rider-option b {
+  color: #e53935;
+}
+
+@media (max-width: 600px) {
+
+  .management-toolbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .toolbar-actions {
+    width: 100%;
+  }
+
+  .toolbar-actions button {
+    flex: 1;
+  }
+
+  .order-detail-grid {
+    grid-template-columns: 1fr;
+  }
+}

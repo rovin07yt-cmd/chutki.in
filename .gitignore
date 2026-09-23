@@ -1,0 +1,32 @@
+# Dependencies
+node_modules/
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Backups
+backup/
+
+# Logs
+*.log
+
+# Local/test files
+backend/-H
+backend/test-db.js
+backend/test.png
+
+# Frontend local server
+frontend/server.js
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+*.bak
+
+# Temporary local uploads - move to persistent object storage before production
+backend/uploads/

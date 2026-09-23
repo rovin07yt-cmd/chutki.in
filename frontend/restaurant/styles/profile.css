@@ -1,0 +1,94 @@
+
+/* ================= PROFILE ================= */
+
+.profile-page {
+  display: flex;
+  justify-content: center;
+}
+
+/* MAIN CARD */
+.profile-card {
+  width: 100%;
+  max-width: 420px;
+  background: white;
+  border-radius: 16px;
+  padding: 20px 16px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ================= IMAGE ================= */
+
+.profile-image {
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.profile-image img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #eee;
+}
+
+/* EDIT BUTTON (OVER IMAGE) */
+.profile-edit-btn {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: #e53935;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  font-size: 14px;
+}
+
+/* ================= FORM ================= */
+
+.profile-form {
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* INPUT GROUP */
+.profile-form .form-group {
+  margin-bottom: 14px;
+}
+
+/* INPUT STYLE UPGRADE */
+.profile-form input {
+  background: #f7f7f7;
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  padding: 12px;
+  font-size: 13px;
+}
+
+/* ================= BUTTON ================= */
+
+.profile-actions {
+  width: 100%;
+  margin-top: 12px;
+}
+
+.profile-actions button {
+  width: 100%;
+  padding: 12px;
+  background: #e53935;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.profile-actions button:active {
+  transform: scale(0.97);
+}
+

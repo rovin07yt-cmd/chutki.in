@@ -1,0 +1,97 @@
+.profile-card{
+  background:#fff;
+  border-radius:16px;
+  padding:18px;
+  margin-bottom:15px;
+  box-shadow:0 2px 10px rgba(0,0,0,.08);
+}
+
+.profile-header{
+  text-align:center;
+}
+
+.profile-avatar{
+  width:90px;
+  height:90px;
+  border-radius:50%;
+  background:#e53935;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:0 auto 12px;
+  font-size:32px;
+  font-weight:700;
+}
+
+.profile-name{
+  font-size:20px;
+  font-weight:700;
+  margin-bottom:4px;
+}
+
+.profile-role{
+  color:#777;
+  font-size:14px;
+}
+
+.profile-row{
+  display:flex;
+  justify-content:space-between;
+  padding:12px 0;
+  border-bottom:1px solid #eee;
+}
+
+.profile-row:last-child{
+  border-bottom:none;
+}
+
+.profile-label{
+  color:#666;
+}
+
+.profile-value{
+  font-weight:600;
+}
+
+.profile-btn{
+  width:100%;
+  border:none;
+  background:#e53935;
+  color:#fff;
+  padding:12px;
+  border-radius:12px;
+  cursor:pointer;
+  font-weight:600;
+  margin-top:10px;
+}
+
+.profile-btn.secondary{
+  background:#f1f1f1;
+  color:#333;
+}
+
+.profile-input{
+  width:100%;
+  padding:12px;
+  border:1px solid #ddd;
+  border-radius:12px;
+  margin-bottom:12px;
+  font-size:14px;
+}
+
+.profile-input:focus{
+  outline:none;
+  border-color:#e53935;
+}
+
+.profile-actions{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.profile-actions .profile-btn{
+  margin-top:0;
+}
+

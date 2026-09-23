@@ -1,0 +1,164 @@
+.admin-home {
+  width: 100%;
+}
+
+/* ================= HOME HEADER ================= */
+
+.home-heading {
+  background: #fff;
+  min-height: 58px;
+  padding: 10px 14px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  box-shadow: 0 2px 7px rgba(0,0,0,.08);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.home-heading strong {
+  font-size: 16px;
+}
+
+.home-refresh-btn {
+  border: 0;
+  border-radius: 7px;
+  background: #e53935;
+  color: #fff;
+  padding: 9px 13px;
+  font-weight: bold;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.home-refresh-btn:disabled {
+  opacity: .65;
+}
+
+/* ================= HOME BUTTONS ================= */
+
+.home-nav {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+  margin-bottom: 12px;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 3px;
+
+  scrollbar-width: thin;
+}
+
+.home-nav::-webkit-scrollbar {
+  height: 4px;
+}
+
+.home-nav::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 10px;
+}
+
+.home-card {
+  flex: 1 1 0;
+  min-width: 105px;
+  height: 58px;
+
+  border: 0;
+  border-radius: 9px;
+
+  background: #e53935;
+  color: white;
+
+  padding: 7px 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+
+  cursor: pointer;
+  white-space: nowrap;
+
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+
+  box-shadow: 0 2px 6px rgba(0,0,0,.10);
+}
+
+.home-card span {
+  font-size: 13px;
+}
+
+.home-card b {
+  font-size: 17px;
+}
+
+.home-card.active {
+  background: #b71c1c;
+}
+
+.home-card:hover {
+  background: #c62828;
+}
+
+/* ================= LOWER SECTION ================= */
+
+.home-section {
+  width: 100%;
+  min-height: 150px;
+}
+
+.home-loading {
+  background: #fff;
+  border-radius: 10px;
+  padding: 35px;
+  text-align: center;
+  color: #777;
+  box-shadow: 0 2px 8px rgba(0,0,0,.08);
+}
+
+.management-error {
+  background: #fff;
+  border-radius: 10px;
+  padding: 25px;
+  color: #c62828;
+  font-weight: bold;
+  box-shadow: 0 2px 8px rgba(0,0,0,.08);
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 600px) {
+
+  .home-heading {
+    min-height: 54px;
+    padding: 9px 10px;
+  }
+
+  .home-heading strong {
+    font-size: 14px;
+  }
+
+  .home-refresh-btn {
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+
+  .home-card {
+    flex: 0 0 auto;
+    min-width: 92px;
+    height: 52px;
+    padding: 6px 9px;
+  }
+
+  .home-card span {
+    font-size: 11px;
+  }
+
+  .home-card b {
+    font-size: 15px;
+  }
+}

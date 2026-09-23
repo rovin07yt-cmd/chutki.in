@@ -1,0 +1,269 @@
+.management-header,
+.management-list,
+.management-error {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.08);
+}
+
+.management-header {
+  padding: 22px;
+  margin-bottom: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+.management-header h2 {
+  margin: 0 0 6px;
+}
+
+.management-header p {
+  margin: 0;
+  color: #777;
+}
+
+.management-list {
+  overflow: hidden;
+}
+
+.management-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  padding: 18px 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.management-row:last-child {
+  border-bottom: 0;
+}
+
+.row-main {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.row-main strong {
+  font-size: 18px;
+}
+
+.row-main small {
+  color: #777;
+}
+
+.row-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.online-status {
+  color: #168344;
+  font-weight: bold;
+}
+
+.offline-status {
+  color: #999;
+  font-weight: bold;
+}
+
+.offline-row {
+  opacity: .48;
+}
+
+.management-row button,
+.refresh-btn {
+  border: 0;
+  border-radius: 8px;
+  padding: 9px 12px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.refresh-btn {
+  background: #e53935;
+  color: white;
+}
+
+.danger-btn {
+  background: #b71c1c;
+  color: white;
+}
+
+.management-error {
+  padding: 30px;
+  color: #c62828;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+@media (max-width: 600px) {
+  .management-header {
+    align-items: flex-start;
+  }
+
+  .management-row {
+    align-items: flex-start;
+  }
+
+  .row-status {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .row-status button {
+    width: 100%;
+  }
+}
+
+.food-filter-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.food-filter-box label {
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.food-filter-box select {
+  min-width: 190px;
+  padding: 9px 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.food-section-title {
+  margin: 18px 0 8px;
+  font-size: 13px;
+  font-weight: bold;
+  color: #333;
+}
+
+.food-section-title.unavailable-title {
+  margin-top: 24px;
+}
+
+.food-editor-box {
+  width: min(620px, calc(100vw - 30px));
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.food-editor-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.food-editor-form > label,
+.food-editor-field > strong {
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.food-editor-form input,
+.food-editor-form textarea,
+.food-editor-form select {
+  width: 100%;
+  margin-top: 6px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font: inherit;
+  box-sizing: border-box;
+}
+
+.food-category-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.food-category-option {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px;
+  border: 1px solid #eee;
+  border-radius: 7px;
+  font-size: 12px;
+}
+
+.food-category-option input {
+  width: auto;
+  margin: 0;
+}
+
+.food-price-editor {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  padding: 12px;
+  border: 1px solid #eee;
+  border-radius: 10px;
+}
+
+.food-price-editor h4 {
+  grid-column: 1 / -1;
+  margin: 0;
+  font-size: 13px;
+}
+
+.food-price-editor label {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.food-editor-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 5px;
+}
+
+.food-editor-actions button {
+  border: 0;
+  border-radius: 8px;
+  padding: 10px 16px;
+  cursor: pointer;
+  background: #e53935;
+  color: #fff;
+  font-weight: bold;
+}
+
+.food-editor-actions .secondary-btn {
+  background: #777;
+}
+
+@media (max-width: 600px) {
+
+  .food-filter-box {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .food-filter-box select {
+    width: 100%;
+  }
+
+  .food-price-editor {
+    grid-template-columns: 1fr;
+  }
+
+  .food-category-grid {
+    grid-template-columns: 1fr;
+  }
+
+}

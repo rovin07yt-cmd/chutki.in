@@ -1,0 +1,100 @@
+/* ================= STATUS BAR ================= */
+.status-bar {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 10px 5px;
+  background: white;
+  border-bottom: 1px solid #eee;
+}
+
+.status-bar::-webkit-scrollbar {
+  display: none;
+}
+
+/* ================= SWIPE TEXT ================= */
+.swipe-text {
+  font-size: 12px;
+  color: #777;
+  margin: 5px 10px;
+}
+
+/* ================= STATUS PILLS ================= */
+.status-pill {
+  flex: 0 0 auto;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  background: #f1f1f1;
+  color: #444;
+  cursor: pointer;
+}
+
+.status-pill.active {
+  background: #e53935;
+  color: white;
+}
+
+/* ================= ORDER LIST ================= */
+.order-list {
+  padding: 10px;
+}
+
+/* ================= ORDER CARD ================= */
+.order-card {
+  background: white;
+  border-radius: 14px;
+  padding: 14px;
+  margin: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* HEADER */
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* STATUS BADGE */
+.status-badge {
+  background: #eee;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 11px;
+}
+
+/* BODY */
+.order-body {
+  margin-top: 8px;
+  font-size: 13px;
+}
+
+/* ACTIONS */
+.order-actions {
+  margin-top: 10px;
+  display: flex;
+  gap: 8px;
+}
+
+/* BUTTONS */
+.btn {
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: none;
+  font-size: 12px;
+}
+
+.btn.accept {
+  background: #4caf50;
+  color: white;
+}
+
+.btn.reject {
+.btn.ready {
+  background: #2196f3;
+  color: white;
+}
+  background: #f44336;
+  color: white;
+}

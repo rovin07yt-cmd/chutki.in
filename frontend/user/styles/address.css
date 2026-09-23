@@ -1,0 +1,115 @@
+.address-card{
+  background:#fff;
+  border-radius:16px;
+  padding:15px;
+  box-shadow:0 2px 10px rgba(0,0,0,.08);
+}
+
+.address-map{
+  height:300px;
+  border-radius:16px;
+  overflow:hidden;
+  margin-bottom:12px;
+}
+
+.location-info{
+  background:#f8f8f8;
+  padding:10px;
+  border-radius:10px;
+  font-size:13px;
+  color:#666;
+  margin-bottom:12px;
+}
+
+.address-form{
+  display:flex;
+  gap:10px;
+  margin-bottom:15px;
+}
+
+.address-input{
+  flex:1;
+  padding:12px;
+  border:1px solid #ddd;
+  border-radius:12px;
+  font-size:14px;
+}
+
+.address-save-btn{
+  border:none;
+  background:#e53935;
+  color:#fff;
+  padding:12px 18px;
+  border-radius:12px;
+  cursor:pointer;
+  font-weight:600;
+}
+
+.address-list{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+.address-item{
+  background:#fff;
+  border:1px solid #eee;
+  border-radius:14px;
+  padding:14px;
+  box-shadow:0 2px 8px rgba(0,0,0,.05);
+}
+
+.address-label{
+  font-size:18px;
+  font-weight:700;
+  margin-bottom:8px;
+}
+
+.address-coords{
+  color:#777;
+  font-size:13px;
+  margin-bottom:12px;
+}
+
+.address-actions{
+  display:flex;
+  gap:10px;
+}
+
+.address-select{
+  flex:1;
+  border:none;
+  background:#e53935;
+  color:#fff;
+  padding:10px;
+  border-radius:10px;
+  cursor:pointer;
+  font-weight:600;
+}
+
+.address-delete{
+  flex:1;
+  border:none;
+  background:#f1f1f1;
+  color:#444;
+  padding:10px;
+  border-radius:10px;
+  cursor:pointer;
+}
+
+.address-selected{
+  border:2px solid #4caf50;
+  background:#f4fff4;
+}
+
+.address-selected .address-label{
+  color:#2e7d32;
+}
+
+.address-selected::after{
+  content:"✓ Selected";
+  display:block;
+  margin-top:10px;
+  color:#2e7d32;
+  font-weight:700;
+}

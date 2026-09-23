@@ -1,0 +1,156 @@
+.home-page{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+.stats-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:8px;
+}
+
+.stat-card{
+  background:#fff;
+  border-radius:12px;
+  padding:10px;
+  box-shadow:0 1px 6px rgba(0,0,0,.08);
+}
+
+.stat-card .label{
+  font-size:11px;
+  color:#777;
+}
+
+.stat-card .value{
+  margin-top:4px;
+  font-size:22px;
+  font-weight:700;
+}
+
+.section-card{
+  background:#fff;
+  border-radius:14px;
+  padding:14px;
+  box-shadow:0 1px 8px rgba(0,0,0,.08);
+}
+
+.section-card h3{
+  margin:0 0 12px;
+  font-size:18px;
+}
+
+.empty-state{
+  text-align:center;
+  color:#777;
+  padding:25px 0;
+}
+
+/* ORDER CARD */
+
+.order-card{
+  background:#fff;
+  border-radius:12px;
+  padding:10px;
+  margin-bottom:10px;
+  box-shadow:0 1px 6px rgba(0,0,0,.08);
+  cursor:pointer;
+}
+
+.order-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:6px;
+}
+
+.order-top b{
+  font-size:16px;
+}
+
+.order-top span{
+  font-size:12px;
+  color:#666;
+  font-weight:600;
+}
+
+.order-customer{
+  font-size:15px;
+  font-weight:600;
+  margin-bottom:4px;
+}
+
+.mobile-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:6px;
+}
+
+.mobile-row span{
+  font-size:14px;
+}
+
+.call-btn{
+  text-decoration:none;
+  background:#2196f3;
+  color:#fff;
+  padding:5px 10px;
+  border-radius:8px;
+  font-size:12px;
+  font-weight:600;
+}
+
+.cod-row{
+  font-size:16px;
+  font-weight:700;
+  color:#e53935;
+  margin-bottom:8px;
+}
+
+.action-row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+}
+
+.cancel-btn,
+.deliver-btn{
+  height:34px;
+  border:none;
+  border-radius:8px;
+  font-size:13px;
+  font-weight:600;
+}
+
+.cancel-btn{
+  background:#f44336;
+  color:#fff;
+}
+
+.deliver-btn{
+  background:#4caf50;
+  color:#fff;
+}
+
+.detail-card{
+  background:#fff;
+  padding:15px;
+  border-radius:12px;
+  box-shadow:0 1px 8px rgba(0,0,0,.08);
+}
+
+.back-btn{
+  border:none;
+  background:#eee;
+  padding:8px 12px;
+  border-radius:8px;
+  margin-bottom:10px;
+}
+
+.restaurant-box{
+  border:1px solid #eee;
+  padding:10px;
+  border-radius:8px;
+  margin-bottom:10px;
+}

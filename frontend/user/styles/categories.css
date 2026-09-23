@@ -1,0 +1,57 @@
+.categories {
+  scroll-behavior: smooth;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 10px;
+  padding: 10px;
+}
+
+.category {
+  flex: 0 0 auto;
+  padding: 8px 14px;
+  border-radius: 20px;
+  background: #eee;
+  white-space: nowrap;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.category.active {
+  background: #e53935;
+  color: white;
+}
+
+.slider {
+  position: relative;
+}
+
+.slide {
+  display: none;
+  width: 100%;
+  border-radius: 12px;
+}
+
+.slide.active {
+  display: block;
+}
+
+.dots {
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+.dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin: 0 3px;
+  background: #ccc;
+  border-radius: 50%;
+}
+
+.dot.active {
+  background: #ff3b30;
+}

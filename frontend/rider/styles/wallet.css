@@ -1,0 +1,79 @@
+.wallet-page{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+
+.wallet-actions{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:10px;
+}
+
+.wallet-nav-btn{
+  height:48px;
+  border:none;
+  border-radius:12px;
+  background:#ffffff;
+  box-shadow:0 1px 8px rgba(0,0,0,.08);
+  font-size:15px;
+  font-weight:600;
+}
+
+.wallet-cards{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+
+.wallet-card{
+  background:#fff;
+  border-radius:14px;
+  padding:16px;
+  box-shadow:0 1px 10px rgba(0,0,0,.08);
+}
+
+.wallet-label{
+  font-size:13px;
+  color:#777;
+}
+
+.wallet-value{
+  margin-top:10px;
+  font-size:28px;
+  font-weight:700;
+  color:#e53935;
+}
+
+.wallet-input{
+  width:100%;
+  height:45px;
+  margin-bottom:10px;
+  border:1px solid #ddd;
+  border-radius:10px;
+  padding:0 10px;
+  box-sizing:border-box;
+}
+
+.wallet-history-card{
+  background:#fff;
+  border:1px solid #eee;
+  border-radius:10px;
+  padding:12px;
+  margin-bottom:10px;
+}
+
+.back-btn{
+  border:none;
+  background:#eee;
+  padding:10px 14px;
+  border-radius:10px;
+  margin-bottom:12px;
+}
+
+.detail-card{
+  background:#fff;
+  border-radius:14px;
+  padding:15px;
+  box-shadow:0 1px 8px rgba(0,0,0,.08);
+}

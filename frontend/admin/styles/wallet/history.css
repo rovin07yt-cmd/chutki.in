@@ -1,0 +1,83 @@
+   RIDER HISTORY FILTERS + TOTALS
+========================================= */
+
+.wallet-history-filters {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+
+.wallet-history-filter {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 9px 14px;
+  background: #fff;
+  color: #555;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.wallet-history-filter:hover {
+  border-color: #e53935;
+}
+
+.wallet-history-filter.active {
+  border-color: #e53935;
+  background: #e53935;
+  color: #fff;
+}
+
+.wallet-history-total-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.wallet-history-total {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 13px 15px;
+  border-radius: 9px;
+  background: #f8f8f8;
+}
+
+.wallet-history-total span {
+  color: #666;
+  font-size: 11px;
+}
+
+.wallet-history-total strong {
+  color: #222;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+
+  .wallet-history-filters {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .wallet-history-filter {
+    width: 100%;
+    padding: 9px 5px;
+    font-size: 10px;
+  }
+
+  .wallet-history-total-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .wallet-history-total {
+    padding: 12px;
+  }
+}
+
+
+/* ============================================================

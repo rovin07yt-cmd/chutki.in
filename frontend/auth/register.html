@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Register</title>
+  <link rel="stylesheet" href="style.css">
+
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+</head>
+
+<body>
+
+<div class="header">
+  <img src="./images/logo.png" class="logo">
+  <div class="text">
+    <div class="title">Chutki</div>
+    <div class="subtitle">Food Delivery in a Chutki</div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="card">
+
+    <select id="role">
+      <option value="user">User</option>
+      <option value="restaurant">Restaurant</option>
+      <option value="rider">Rider</option>
+      <option value="workwithus">Work With Us</option>
+    </select>
+
+    <input id="name" placeholder="Name">
+    <input id="mobile" placeholder="Mobile">
+    <input id="email" oninput="this.value = this.value.toLowerCase()" placeholder="Email">
+    <input id="password" type="password" placeholder="Password">
+
+    <!-- RESTAURANT -->
+    <div id="restaurant_fields" style="display:none;">
+      <input id="restaurant_name" placeholder="Restaurant Name">
+      <input id="owner_mobile" placeholder="Owner Mobile">
+    </div>
+
+    <!-- RIDER -->
+    <div id="rider_fields" style="display:none;">
+      <input id="driving_license" placeholder="Driving License">
+    </div>
+
+    <button type="button" onclick="sendOTP()">Send OTP</button>
+
+    <div class="link">
+      Already have account? <span onclick="location.href='login.html'">Login</span>
+    </div>
+
+  </div>
+</div>
+
+<script src="/auth/auth.js?v=6000"></script>
+
+<script>
+const roleSelect = document.getElementById("role");
+
+roleSelect.addEventListener("change", () => {
+  const role = roleSelect.value;
+
+  document.getElementById("restaurant_fields").style.display = "none";
+  document.getElementById("rider_fields").style.display = "none";
+
+  if (role === "restaurant") {
+    document.getElementById("restaurant_fields").style.display = "block";
+  }
+
+  if (role === "rider") {
+    document.getElementById("rider_fields").style.display = "block";
+  }
+});
+</script>
+
+</body>
+</html>

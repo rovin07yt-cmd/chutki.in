@@ -1,0 +1,84 @@
+frontend
+├── admin
+│   ├── admin.js
+│   ├── index.html
+│   └── style.css
+├── assets
+│   ├── logo.png
+│   └── styles.css
+├── auth
+│   ├── auth.js
+│   ├── images
+│   │   └── logo.png
+│   ├── index.html
+│   ├── login.html
+│   ├── register.html
+│   ├── style.css
+│   └── verify.html
+├── index.html
+├── restaurant
+│   ├── backup
+│   │   ├── index_v1_sidebar.html
+│   │   ├── restaurant_v1_sidebar.js
+│   │   └── style_v1_sidebar.css
+│   ├── index.html
+│   ├── modules
+│   ├── pages
+│   │   ├── food-add.js
+│   │   ├── food-edit.js
+│   │   ├── food.js
+│   │   ├── home.js
+│   │   ├── location.js
+│   │   ├── notification.js
+│   │   ├── order_detail.js
+│   │   ├── profile.js
+│   │   ├── wallet-bank.js
+│   │   └── wallet.js
+│   ├── restaurant.js
+│   ├── style.css
+│   ├── styles
+│   │   ├── base.css
+│   │   ├── food-form.css
+│   │   ├── food.css
+│   │   ├── home.css
+│   │   ├── location.css
+│   │   ├── profile.css
+│   │   ├── sidebar.css
+│   │   └── wallet.css
+│   └── temp.js
+├── rider
+│   ├── index.html
+│   ├── rider.js
+│   └── style.css
+├── server.js
+├── shared
+│   ├── api.js
+│   └── session.js
+├── user
+│   ├── index.html
+│   ├── pages
+│   │   ├── address.js
+│   │   ├── cart.js
+│   │   ├── home.js
+│   │   ├── orders.js
+│   │   ├── profile.js
+│   │   └── support.js
+│   ├── style.backup.css
+│   ├── style.css
+│   ├── styles
+│   │   ├── cart.css
+│   │   ├── categories.css
+│   │   └── food.css
+│   └── user.js
+└── work
+    ├── index.html
+    ├── pages
+    │   ├── application.js
+    │   ├── apply.js
+    │   ├── home.js
+    │   ├── notification.js
+    │   └── profile.js
+    ├── style.css
+    └── work.js
+
+17 directories, 65 files

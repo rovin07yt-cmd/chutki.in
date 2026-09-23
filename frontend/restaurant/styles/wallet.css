@@ -1,0 +1,84 @@
+
+/* ================= WALLET ================= */
+
+/* ACTION BUTTONS */
+.wallet-actions {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.wallet-actions button {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  background: #e53935;
+  color: white;
+  border-radius: 8px;
+  font-size: 13px;
+}
+
+/* CARDS */
+.wallet-cards {
+  display: flex;
+  gap: 10px;
+}
+
+.wallet-card {
+  flex: 1;
+  background: white;
+  border-radius: 12px;
+  padding: 14px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+}
+
+.wallet-card .label {
+  font-size: 12px;
+  color: #777;
+}
+
+.wallet-card .amount {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+/* BANK SECTION */
+.wallet-bank {
+  display: flex;
+  justify-content: center;
+}
+
+.bank-card {
+  width: 100%;
+  max-width: 400px;
+  background: white;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* ACTIONS */
+.bank-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.btn-save {
+  flex: 1;
+  background: #e53935;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.btn-back {
+  flex: 1;
+  background: #eee;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+}
+
