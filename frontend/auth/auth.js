@@ -1,6 +1,6 @@
 console.log("AUTH JS FINAL CLEAN");
 
-const BASE_URL = "http://localhost:3000";
+const BASE_URL = (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") ? "http://localhost:3000" : "";
 
 /* REGISTER */
 async function sendOTP() {
