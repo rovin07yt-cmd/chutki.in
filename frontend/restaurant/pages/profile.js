@@ -7,8 +7,8 @@ export async function render() {
   const user = data.user || {};
   const profile = data.profile || {};
 
-  const imageUrl = profile.image
-    ? `http://localhost:3000${profile.image}?t=${Date.now()}`
+  const profileImageUrl = profile.image
+    ? imageUrl(profile.image) + `?t=${Date.now()}`
     : "/assets/default.png";
 
   document.getElementById("content").innerHTML = `
@@ -17,7 +17,7 @@ export async function render() {
       <div class="profile-card">
 
         <div class="profile-image">
-          <img id="profileImg" src="${imageUrl}">
+          <img id="profileImg" src="${profileImageUrl}">
           <button class="profile-edit-btn" onclick="pickProfile()">✎</button>
           <input type="file" id="imgInput" hidden>
         </div>
@@ -73,7 +73,7 @@ export async function render() {
       const form = new FormData();
       form.append("image", file);
 
-      const res = await fetch("http://localhost:3000/restaurant-profile/image", {
+      const res = await fetch(apiUrl("/restaurant-profile/image"), {
         method: "POST",
         body: form,
         headers: {
@@ -86,7 +86,7 @@ export async function render() {
 
       if (data.success && data.data.image) {
         document.getElementById("profileImg").src =
-          "http://localhost:3000/" + data.data.image + "?t=" + Date.now();
+          imageUrl(data.data.image) + "?t=" + Date.now();
       } else {
         alert("Upload failed");
       }

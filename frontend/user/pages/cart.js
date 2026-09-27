@@ -24,7 +24,7 @@ export async function render() {
   try {
 
     const res = await fetch(
-      "http://localhost:3000/user/cart/summary",
+      apiUrl("/user/cart/summary"),
       {
         method: "POST",
         headers: {

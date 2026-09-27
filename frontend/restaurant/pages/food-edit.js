@@ -85,7 +85,7 @@ export async function render() {
       f.images.slice(-5).forEach((img, i) => {
         const box = document.querySelectorAll(".img-box")[i];
         if (box) {
-          box.style.backgroundImage = `url(http://localhost:3000${img}?t=${Date.now()})`;
+          box.style.backgroundImage = `url("${imageUrl(img)}?t=${Date.now()}")`;
           box.style.backgroundSize = "cover";
           box.style.backgroundPosition = "center";
         }
@@ -154,7 +154,7 @@ async function uploadImages(food_id) {
   inputs.forEach(f => form.append("images", f));
   form.append("food_id", food_id);
 
-  const res = await fetch("http://localhost:3000/food-images/upload", {
+  const res = await fetch(apiUrl("/food-images/upload"), {
     method: "POST",
     body: form,
     headers: {

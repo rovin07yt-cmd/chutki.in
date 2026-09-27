@@ -4,6 +4,18 @@ const BASE_URL =
     ? "http://localhost:3000"
     : "";
 
+window.apiUrl = function (url) {
+  if (!url) return BASE_URL;
+  if (/^https?:\/\//i.test(url)) return url;
+  return BASE_URL + (url.startsWith("/") ? url : "/" + url);
+};
+
+window.imageUrl = function (value) {
+  if (!value) return "";
+  if (/^https?:\/\//i.test(value)) return value;
+  return BASE_URL + (value.startsWith("/") ? value : "/" + value);
+};
+
 // GET
 window.apiGet = async function (url) {
   try {

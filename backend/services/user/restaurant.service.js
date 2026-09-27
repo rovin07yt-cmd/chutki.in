@@ -8,7 +8,7 @@ const getRestaurants = async () => {
     name: r.restaurant_name,
     is_online: r.is_online,
     image: r.image
-      ? (r.image.startsWith("/") ? r.image : "/" + r.image)
+      ? (r.image.startsWith("/") || /^https?:\/\//i.test(r.image) ? r.image : "/" + r.image)
       : null
   }));
 };

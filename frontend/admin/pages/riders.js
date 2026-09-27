@@ -124,7 +124,7 @@ window.deleteRider = async function(id) {
 
   try {
     const response = await fetch(
-      `http://localhost:3000/admin/users/${id}`,
+      apiUrl(`/admin/users/${id}`),
       {
         method: "DELETE",
         headers: {

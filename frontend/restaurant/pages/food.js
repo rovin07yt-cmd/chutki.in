@@ -34,7 +34,7 @@ function card(f) {
   return `
   <div class="food-card">
 
-    <img src="${f.main_image ? ('http://localhost:3000' + f.main_image) : 'http://localhost:3000/uploads/default.png'}" class="food-img" />
+    <img src="${f.main_image ? imageUrl(f.main_image) : "/assets/default.png"}" class="food-img" />
 
     <div class="food-body">
 

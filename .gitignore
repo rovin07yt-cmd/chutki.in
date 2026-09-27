@@ -30,3 +30,6 @@ Thumbs.db
 
 # Temporary local uploads - move to persistent object storage before production
 backend/uploads/
+
+# Root-level local/test uploads
+uploads/

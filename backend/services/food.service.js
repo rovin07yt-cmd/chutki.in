@@ -163,9 +163,9 @@ const getFoods = async (restaurant_id) => {
 
       categories: f.categories,
 
-      images: f.images.map(i => i.url.startsWith('/') ? i.url : '/' + i.url),
+      images: f.images.map(i => i.url.startsWith('/') || /^https?:\/\//i.test(i.url) ? i.url : '/' + i.url),
 
-      main_image: main ? (main.url.startsWith("/") ? main.url : "/" + main.url) : null
+      main_image: main ? (main.url.startsWith("/") || /^https?:\/\//i.test(main.url) ? main.url : "/" + main.url) : null
     };
   });
 };
@@ -267,8 +267,8 @@ const getFoodById = async (food_id, restaurant_id) => {
     })),
 
     categories: f.categories,
-    images: f.images.map(i => i.url.startsWith('/') ? i.url : '/' + i.url),
-      main_image: main ? (main.url.startsWith("/") ? main.url : "/" + main.url) : null
+    images: f.images.map(i => i.url.startsWith('/') || /^https?:\/\//i.test(i.url) ? i.url : '/' + i.url),
+      main_image: main ? (main.url.startsWith("/") || /^https?:\/\//i.test(main.url) ? main.url : "/" + main.url) : null
   };
 };
 

@@ -37,7 +37,7 @@ const getFoodsByRestaurant = async (restaurant_id) => {
         })),
 
       images: f.images.map(i =>
-        i.url.startsWith("/") ? i.url : "/" + i.url
+        i.url.startsWith("/") || /^https?:\/\//i.test(i.url) ? i.url : "/" + i.url
       ),
 
       categories: f.categories

@@ -48,8 +48,8 @@ async function loadData() {
     "x-role": "user"
   };
 
-  const foodRes = await fetch("http://localhost:3000/user/food", { headers });
-  const restroRes = await fetch("http://localhost:3000/user/restaurants", { headers });
+  const foodRes = await fetch(apiUrl("/user/food"), { headers });
+  const restroRes = await fetch(apiUrl("/user/restaurants"), { headers });
 
   const foodData = await foodRes.json();
   const restroData = await restroRes.json();
@@ -70,8 +70,8 @@ function renderFoods(list) {
     const discount = mrp ? Math.round(((mrp - price)/mrp)*100) : 0;
 
     const images = (f.images && f.images.length)
-      ? f.images.map(i => "http://localhost:3000" + i)
-      : ["http://localhost:3000/uploads/default.jpg"];
+      ? f.images.map(i => imageUrl(i))
+      : ["/assets/default.png"];
 
     const card = document.createElement("div");
     card.className = f.is_available ? "food-card" : "food-card disabled";
@@ -127,8 +127,8 @@ function renderRestaurants() {
 
   allRestaurants.forEach(r => {
     const img = r.image
-      ? "http://localhost:3000" + (r.image.startsWith("/") ? r.image : "/uploads/" + r.image)
-      : "http://localhost:3000/uploads/default.jpg";
+      ? imageUrl(r.image)
+      : "/assets/default.png";
 
     const card = document.createElement("div");
     card.className = r.is_online ? "restaurant-card" : "restaurant-card disabled";
@@ -154,8 +154,8 @@ window.viewFood = function(id) {
   const restaurant = allRestaurants.find(r => r.name === food.restaurant_name);
 
   const images = (food.images && food.images.length)
-    ? food.images.map(i => "http://localhost:3000" + i)
-    : ["http://localhost:3000/uploads/default.jpg"];
+    ? food.images.map(i => imageUrl(i))
+    : ["/assets/default.png"];
 
   const price = food.prices?.[0]?.price || 0;
   const mrp = food.prices?.[0]?.mrp || 0;
@@ -215,8 +215,8 @@ window.viewFood = function(id) {
     const discount = mrp ? Math.round(((mrp-price)/mrp)*100) : 0;
 
     const images = (f.images && f.images.length)
-      ? f.images.map(i => "http://localhost:3000" + i)
-      : ["http://localhost:3000/uploads/default.jpg"];
+      ? f.images.map(i => imageUrl(i))
+      : ["/assets/default.png"];
 
     const div = document.createElement("div");
     div.className = f.is_available ? "food-card" : "food-card disabled";
@@ -351,7 +351,7 @@ window.viewRestaurant = function(name) {
     <button class="back-btn" onclick="goBackPage()">← Back</button>
 
       <div class="restaurant-header">
-        <img src="${restaurant?.image ? 'http://localhost:3000' + restaurant.image : 'http://localhost:3000/uploads/default.jpg'}">
+        <img src="${restaurant?.image ? imageUrl(restaurant.image) : "/assets/default.png"}">
         <div class="food-body">
           <h2>${name}</h2>
           ${restaurant && !restaurant.is_online ? '<div class="status-badge">Offline</div>' : ""}
@@ -374,8 +374,8 @@ window.viewRestaurant = function(name) {
     const discount = mrp ? Math.round(((mrp-price)/mrp)*100) : 0;
 
     const images = (f.images && f.images.length)
-      ? f.images.map(i => "http://localhost:3000" + i)
-      : ["http://localhost:3000/uploads/default.jpg"];
+      ? f.images.map(i => imageUrl(i))
+      : ["/assets/default.png"];
 
     const div = document.createElement("div");
     div.className = f.is_available ? "food-card" : "food-card disabled";

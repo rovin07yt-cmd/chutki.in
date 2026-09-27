@@ -6,10 +6,10 @@ export default async function(content){
   const p =
     res.data || {};
 
-  const imageUrl =
+  const profileImageUrl =
     p.image
-      ? `http://localhost:3000${p.image}?t=${Date.now()}`
-      : "http://localhost:3000/uploads/default.png";
+      ? imageUrl(p.image) + `?t=${Date.now()}`
+      : "/assets/default.png";
 
   content.innerHTML = `
 
@@ -20,7 +20,7 @@ export default async function(content){
         <div class="profile-avatar">
           <img
             id="profilePreview"
-            src="${imageUrl}">
+            src="${profileImageUrl}">
         </div>
 
         <input
@@ -181,7 +181,7 @@ export default async function(content){
 
       const res =
         await fetch(
-          "http://localhost:3000/rider-profile/image",
+          apiUrl("/rider-profile/image"),
           {
             method:"POST",
             headers:{

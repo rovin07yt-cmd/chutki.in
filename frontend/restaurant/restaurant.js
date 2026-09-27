@@ -33,9 +33,7 @@ async function loadProfile() {
     const img = document.getElementById("sidebarImg");
     if (img) {
       const url = currentUser.profile?.image
-        ? (currentUser.profile.image.startsWith("http")
-            ? currentUser.profile.image
-            : "http://localhost:3000" + currentUser.profile.image)
+        ? imageUrl(currentUser.profile.image)
         : "/assets/default.png";
       img.src = url + "?t=" + Date.now();
     }

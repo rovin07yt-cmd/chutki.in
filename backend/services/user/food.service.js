@@ -38,7 +38,7 @@ const getHomeFoods = async () => {
         })),
 
       images: f.images.map(i =>
-        i.url.startsWith("/")
+        i.url.startsWith("/") || /^https?:\/\//i.test(i.url)
           ? i.url
           : "/" + i.url
       ),

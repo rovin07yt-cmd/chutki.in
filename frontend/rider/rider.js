@@ -72,7 +72,7 @@ async function loadSidebarProfile() {
     const img = document.getElementById("sidebarImg");
 
     if (img && res.data?.image) {
-      img.src = "http://localhost:3000" + res.data.image + "?t=" + Date.now();
+      img.src = imageUrl(res.data.image) + "?t=" + Date.now();
     }
 
   } catch(err) {

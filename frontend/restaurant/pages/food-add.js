@@ -152,7 +152,7 @@ async function uploadImages(food_id) {
   form.append("food_id", food_id);
 
   try {
-    const res = await fetch("http://localhost:3000/food-images/upload", {
+    const res = await fetch(apiUrl("/food-images/upload"), {
       method: "POST",
       body: form,
       headers: {
