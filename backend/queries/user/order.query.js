@@ -2,24 +2,29 @@ const pool = require("../../config/db");
 
 const getUserOrders = async (user_id) => {
   return pool.query(`
-    SELECT 
-      id,
-      status,
-      dispatch_status,
-      final_total,
-      created_at
-    FROM orders
-    WHERE user_id = $1
-    ORDER BY id DESC
+    SELECT
+      o.id,
+      o.status,
+      o.dispatch_status,
+      o.final_total,
+      o.created_at,
+      EXISTS (
+        SELECT 1
+        FROM order_restaurants orr
+        WHERE orr.order_id = o.id
+          AND orr.status = 'rejected'
+      ) AS has_rejection
+    FROM orders o
+    WHERE o.user_id = $1
+    ORDER BY o.id DESC
   `, [user_id]);
 };
 
 module.exports.getUserOrders = getUserOrders;
 
-
 const getOrderDetails = async (order_id, user_id) => {
   return pool.query(`
-    SELECT 
+    SELECT
       o.id,
       o.status,
       o.dispatch_status,
@@ -49,4 +54,3 @@ const getOrderDetails = async (order_id, user_id) => {
 };
 
 module.exports.getOrderDetails = getOrderDetails;
-

@@ -94,6 +94,60 @@ const getOrderById = async (order_id) => {
   );
 };
 
+
+// 🔥 RESTAURANT CANCEL
+const rejectRestaurantAndCancelOrder = async (order_id, restaurant_id) => {
+  const client = await pool.connect();
+
+  try {
+    await client.query('BEGIN');
+
+    const restaurantResult = await client.query(
+      `
+      UPDATE order_restaurants
+      SET status = 'rejected'
+      WHERE order_id = $1
+        AND restaurant_id = $2
+        AND status NOT IN ('ready', 'picked', 'delivered')
+      RETURNING order_id, restaurant_id, status
+      `,
+      [order_id, restaurant_id]
+    );
+
+    if (!restaurantResult.rows.length) {
+      await client.query('ROLLBACK');
+      return restaurantResult;
+    }
+
+    const orderResult = await client.query(
+      `
+      UPDATE orders
+      SET status = 'cancelled'
+      WHERE id = $1
+        AND status NOT IN ('delivered', 'cancelled', 'returned')
+      RETURNING id, status, dispatch_status
+      `,
+      [order_id]
+    );
+
+    if (!orderResult.rows.length) {
+      await client.query('ROLLBACK');
+      return orderResult;
+    }
+
+    await client.query('COMMIT');
+    return orderResult;
+
+  } catch (err) {
+    await client.query('ROLLBACK');
+    throw err;
+  } finally {
+    client.release();
+  }
+};
+
+
+
 module.exports = {
   getOrdersByRestaurant,
   getOrderItemsByRestaurant,
@@ -102,7 +156,8 @@ module.exports = {
   checkOrderRestaurant,
   updateRestaurantStatus,
   areAllRestaurantsReady,
-  getOrderById
+  getOrderById,
+  rejectRestaurantAndCancelOrder
 };
 
 // 🔥 HISTORY ORDERS

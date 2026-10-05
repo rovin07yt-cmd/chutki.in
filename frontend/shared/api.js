@@ -21,6 +21,7 @@ window.apiGet = async function (url) {
   try {
     const res = await fetch(BASE_URL + url, {
       method: "GET",
+      cache: "no-store",
       headers: {
         "Content-Type": "application/json",
         "x-user-id": session.getUserId(),

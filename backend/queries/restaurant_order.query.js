@@ -72,7 +72,10 @@ const getCounts = async (restaurant_id) => {
 
       -- CANCELLED (ONLY ON THE WAY RETURN ✅)
       COUNT(*) FILTER (
-        WHERE o.dispatch_status = 'on_the_way_return'
+        WHERE (
+          (o.status = 'cancelled' AND orr.status <> 'rejected')
+          OR o.dispatch_status = 'on_the_way_return'
+        )
       ) AS cancelled
 
     FROM order_restaurants orr
@@ -100,8 +103,7 @@ const getOrdersByStatus = async (restaurant_id, status) => {
     condition = `o.dispatch_status = 'delivered'`;
   }
   else if (status === "cancelled") {
-    // ONLY on the way cancel
-    condition = `o.dispatch_status = 'on_the_way_return'`;
+    condition = `((o.status = 'cancelled' AND orr.status <> 'rejected') OR o.dispatch_status = 'on_the_way_return')`;
   }
   else if (status === "returned") {
     condition = `o.dispatch_status = 'returned'`;

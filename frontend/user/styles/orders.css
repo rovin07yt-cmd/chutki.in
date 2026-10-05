@@ -95,3 +95,75 @@ padding:20px;
 border-radius:12px;
 text-align:center;
 }
+
+.orders-page{
+display:flex;
+flex-direction:column;
+gap:22px;
+}
+
+.orders-section{
+display:flex;
+flex-direction:column;
+gap:12px;
+}
+
+.orders-section-title{
+font-size:17px;
+font-weight:700;
+margin:0;
+}
+
+.orders-section-title span{
+font-size:13px;
+color:#888;
+font-weight:500;
+}
+
+.cancelled-order-card{
+opacity:.55;
+background:#f1f1f1;
+box-shadow:none;
+}
+
+.cancelled-order-card .order-id,
+.cancelled-order-card .order-date,
+.cancelled-order-card .order-total{
+color:#888;
+}
+
+.cancelled-order-card .order-view-btn{
+background:#888;
+}
+
+.cancelled-status{
+background:#fde8e8;
+color:#b42318;
+}
+
+.delivered-status{
+background:#e5f5e9;
+color:#247a3d;
+}
+
+.active-status{
+background:#fff2d8;
+color:#8a5b00;
+}
+
+.order-detail-outcome{
+display:inline-block;
+padding:6px 12px;
+border-radius:20px;
+font-size:13px;
+font-weight:700;
+margin:8px 0;
+}
+
+.cancelled-message{
+margin:12px 0;
+padding:12px;
+border-radius:8px;
+background:#f3f3f3;
+color:#777;
+}

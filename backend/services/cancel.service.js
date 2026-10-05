@@ -21,8 +21,7 @@ const cancelByUser = async (order_id, user_id) => {
     throw new Error('Cannot cancel, already preparing');
   }
 
-  // ✅ CANCEL FULL ORDER
-  await orderQuery.cancelAllRestaurants(order_id);
+  // CANCEL FULL ORDER
   await orderQuery.updateOrderStatus(order_id, 'cancelled');
 
   return { message: 'Order cancelled by user' };
@@ -38,9 +37,15 @@ const cancelByRestaurant = async (order_id, restaurant_id) => {
     throw new Error('Invalid order');
   }
 
-  // ✅ FULL ORDER CANCEL
-  await orderQuery.cancelAllRestaurants(order_id);
-  await orderQuery.updateOrderStatus(order_id, 'cancelled');
+  // RESTAURANT REJECT + FULL ORDER CANCEL
+  const result = await orderQuery.rejectRestaurantAndCancelOrder(
+    order_id,
+    restaurant_id
+  );
+
+  if (!result.rows.length) {
+    throw new Error('Order cannot be cancelled');
+  }
 
   return { message: 'Order cancelled by restaurant' };
 };

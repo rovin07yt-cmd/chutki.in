@@ -25,4 +25,15 @@ async function loadPage(page) {
   document.getElementById("overlay").classList.remove("active");
 }
 
+async function userPresenceHeartbeat() {
+  try {
+    await apiGet("/user/profile");
+  } catch (err) {
+    console.error("USER PRESENCE ERROR:", err.message);
+  }
+}
+
+userPresenceHeartbeat();
+setInterval(userPresenceHeartbeat, 30000);
+
 loadPage("home");

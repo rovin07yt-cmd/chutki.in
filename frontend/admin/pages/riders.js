@@ -22,7 +22,7 @@ export async function render(targetId = "content") {
     <div class="management-list">
       ${
         online.length
-          ? online.map(riderCard).join("")
+          ? online.map(r => riderCard(r)).join("")
           : `<div class="empty-management">No online riders</div>`
       }
 

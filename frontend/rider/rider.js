@@ -82,6 +82,8 @@ async function loadSidebarProfile() {
 
 window.onload = () => {
 
+  startRiderLocationTracking();
+
   const toggle =
     document.getElementById("statusToggle");
 
@@ -180,3 +182,116 @@ setInterval(
 
 refreshNotifications();
 
+
+
+/* ============================================================
+   RIDER LIVE LOCATION
+   Location tracking is independent of orders/Route page.
+   ============================================================ */
+
+let riderLocationWatchId = null;
+let lastLocationSentAt = 0;
+
+async function sendRiderLocation(position) {
+
+  const lat = position.coords.latitude;
+  const lng = position.coords.longitude;
+
+  try {
+
+    const now = Date.now();
+
+    if (now - lastLocationSentAt < 10000) {
+      return;
+    }
+
+    lastLocationSentAt = now;
+
+    const res = await apiPost(
+      "/rider-location/update",
+      {
+        lat,
+        lng
+      }
+    );
+
+    if (
+      res.data &&
+      res.data.serviceable === false
+    ) {
+
+      const toggle =
+        document.getElementById("statusToggle");
+
+      const statusText =
+        document.getElementById("statusText");
+
+      if (toggle) {
+        toggle.checked = false;
+      }
+
+      if (statusText) {
+        statusText.innerText = "OFFLINE";
+        statusText.style.color = "white";
+      }
+    }
+
+  } catch (err) {
+
+    console.error(
+      "Rider location update failed:",
+      err
+    );
+  }
+}
+
+
+function startRiderLocationTracking() {
+
+  if (!navigator.geolocation) {
+
+    console.warn(
+      "Geolocation is not supported by this browser."
+    );
+
+    return;
+  }
+
+  if (riderLocationWatchId !== null) {
+    return;
+  }
+
+  riderLocationWatchId =
+    navigator.geolocation.watchPosition(
+      sendRiderLocation,
+      err => {
+
+        console.warn(
+          "Rider GPS error:",
+          err.message
+        );
+
+      },
+      {
+        enableHighAccuracy: true,
+        maximumAge: 10000,
+        timeout: 15000
+      }
+    );
+}
+
+
+function stopRiderLocationTracking() {
+
+  if (
+    riderLocationWatchId !== null &&
+    navigator.geolocation
+  ) {
+
+    navigator.geolocation.clearWatch(
+      riderLocationWatchId
+    );
+
+    riderLocationWatchId = null;
+  }
+}

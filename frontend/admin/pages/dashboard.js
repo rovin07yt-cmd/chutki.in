@@ -160,7 +160,7 @@ window.openHomeSection = async function(type) {
     if (!page) return;
 
     const module =
-      await import(`./${page}.js`);
+      await import(`./${page}.js?v=20261005`);
 
     if (typeof module.render !== "function") {
       throw new Error(

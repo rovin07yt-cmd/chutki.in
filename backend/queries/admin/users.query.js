@@ -11,7 +11,11 @@ const getUsers = async () => {
       password,
       is_blocked,
       last_seen,
-      created_at
+      created_at,
+      (
+        last_seen IS NOT NULL
+        AND last_seen >= CURRENT_TIMESTAMP - INTERVAL '1 minute'
+      ) AS is_online
     FROM users
     WHERE role IN ('user','workwithus')
     ORDER BY is_blocked ASC, created_at DESC

@@ -1,73 +1,133 @@
-const pool = require('../config/db');
+const pool = require("../config/db");
 const areaService = require("./area.service");
 
+const updateLocation = async ({ user_id, lat, lng }) => {
 
-const updateLocation = async ({ rider_id, lat, lng }) => {
+  const latitude = Number(lat);
+  const longitude = Number(lng);
 
-  const prevRes = await pool.query(
-    `SELECT current_lat, current_lng FROM riders WHERE id = $1`,
-    [rider_id]
+  if (
+    !Number.isFinite(latitude) ||
+    !Number.isFinite(longitude)
+  ) {
+    throw new Error("Invalid location");
+  }
+
+  if (
+    latitude < -90 ||
+    latitude > 90 ||
+    longitude < -180 ||
+    longitude > 180
+  ) {
+    throw new Error("Invalid location");
+  }
+
+  const riderRes = await pool.query(
+    `
+      SELECT
+        id,
+        current_lat,
+        current_lng
+      FROM riders
+      WHERE user_id = $1
+    `,
+    [user_id]
   );
 
-  const prev = prevRes.rows[0];
+  if (!riderRes.rows.length) {
+    throw new Error("Rider not found");
+  }
+
+  const rider = riderRes.rows[0];
 
   let distance = 0;
 
-  if (prev.current_lat && prev.current_lng) {
+  if (
+    rider.current_lat !== null &&
+    rider.current_lng !== null
+  ) {
+
     const distRes = await pool.query(
-      `SELECT earth_distance(
-        ll_to_earth($1, $2),
-        ll_to_earth($3, $4)
-      ) AS dist`,
-      [prev.current_lat, prev.current_lng, lat, lng]
+      `
+        SELECT earth_distance(
+          ll_to_earth($1, $2),
+          ll_to_earth($3, $4)
+        ) AS dist
+      `,
+      [
+        rider.current_lat,
+        rider.current_lng,
+        latitude,
+        longitude
+      ]
     );
 
-    distance = Number(distRes.rows[0].dist) / 1000; // meters → km
+    distance =
+      Number(distRes.rows[0].dist) / 1000;
   }
+
+  const serviceable =
+    await areaService.isServiceable(
+      latitude,
+      longitude
+    );
 
   await pool.query(
-    `UPDATE riders
-     SET current_lat = $1,
-         current_lng = $2,
-         last_location_update = CURRENT_TIMESTAMP,
-         total_distance_today = total_distance_today + $3
-     WHERE id = $4`,
-    [lat, lng, distance, rider_id]
+    `
+      UPDATE riders
+      SET
+        current_lat = $1,
+        current_lng = $2,
+        last_location_update = CURRENT_TIMESTAMP,
+        total_distance_today =
+          total_distance_today + $3,
+        is_online =
+          CASE
+            WHEN $4 = false THEN false
+            ELSE is_online
+          END
+      WHERE id = $5
+    `,
+    [
+      latitude,
+      longitude,
+      distance,
+      serviceable,
+      rider.id
+    ]
   );
 
-
-  const serviceable = await areaService.isServiceable(lat, lng);
-
-  if (!serviceable) {
-    await pool.query(
-      `UPDATE riders
-       SET is_online = false
-       WHERE id = $1`,
-      [rider_id]
-    );
-  }
-
-  return { distance_added_km: distance };
+  return {
+    distance_added_km: distance,
+    serviceable
+  };
 };
 
-module.exports = {
-  updateLocation
-};
 
-// 🔥 GET RIDER LIVE LOCATION
 const getRiderLocation = async (rider_id) => {
+
   const res = await pool.query(
-    `SELECT id, current_lat, current_lng, last_location_update
-     FROM riders
-     WHERE id = $1`,
+    `
+      SELECT
+        id,
+        current_lat,
+        current_lng,
+        last_location_update
+      FROM riders
+      WHERE id = $1
+    `,
     [rider_id]
   );
 
-  if (res.rows.length === 0) {
+  if (!res.rows.length) {
     throw new Error("Rider not found");
   }
 
   return res.rows[0];
 };
 
-module.exports.getRiderLocation = getRiderLocation;
+
+module.exports = {
+  updateLocation,
+  getRiderLocation
+};

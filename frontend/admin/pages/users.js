@@ -20,7 +20,7 @@ export async function render(targetId = "content") {
     </div>
 
     <div class="management-list">
-      ${online.map(userCard).join("")}
+      ${online.map(u => userCard(u)).join("")}
       ${offline.map(u => userCard(u, true)).join("")}
     </div>
   `;

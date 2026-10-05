@@ -5,11 +5,7 @@ const getUsers = async () => {
 
   return result.rows.map(user => ({
     ...user,
-    status:
-      user.last_seen &&
-      (Date.now() - new Date(user.last_seen).getTime()) < 300000
-        ? 'online'
-        : 'offline'
+    status: user.is_online ? 'online' : 'offline'
   }));
 };
 

@@ -37,8 +37,25 @@ router.post('/assign', async (req, res) => {
       req.body.order_id,
       req.body.rider_id
     );
-
     return response.success(res, 'Rider assigned', data);
+  } catch (err) {
+    return response.error(res, err.message);
+  }
+});
+
+router.post('/cancel', async (req, res) => {
+  try {
+    const data = await service.cancelOrder(req.body.order_id);
+    return response.success(res, 'Order cancelled', data);
+  } catch (err) {
+    return response.error(res, err.message);
+  }
+});
+
+router.delete('/:id', async (req, res) => {
+  try {
+    const data = await service.deleteOrder(req.params.id);
+    return response.success(res, 'Order deleted', data);
   } catch (err) {
     return response.error(res, err.message);
   }

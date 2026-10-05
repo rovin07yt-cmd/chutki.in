@@ -80,7 +80,7 @@ async function loadPage(page) {
   try {
 
     const module =
-      await import(`./pages/${page}.js`);
+      await import(`./pages/${page}.js?v=20261005`);
 
     if (typeof module.render !== "function") {
       throw new Error(

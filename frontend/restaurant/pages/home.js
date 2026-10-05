@@ -159,7 +159,7 @@ function cardHTML(o) {
         <div><b>Order #${o.order_id}</b></div>
         <div class="status-badge">
           ${
-            o.dispatch_status === 'delivered'
+            o.dispatch_status === 'returned' ? 'returned' : o.dispatch_status === 'on_the_way_return' ? 'returning' : o.status === 'cancelled' && o.restaurant_status !== 'rejected' ? 'cancelled' : o.dispatch_status === 'delivered'
               ? 'delivered'
               : o.dispatch_status === 'picked'
               ? 'picked'
