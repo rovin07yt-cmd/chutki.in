@@ -32,7 +32,7 @@ const findUser = async (identifier) => {
 const saveOTP = async (gmail, otp, type, expires_at) => {
   return pool.query(
     `INSERT INTO otp_logs (gmail, otp, type, expires_at)
-     VALUES ($1, $2, $3, $4);`,
+     VALUES ($1, $2, $3, $4) RETURNING id;`,
     [gmail, otp, type, expires_at]
   );
 };

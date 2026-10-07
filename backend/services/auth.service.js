@@ -2,6 +2,7 @@ const { validateRegister } = require('../utils/validator');
 const authQuery = require('../queries/auth.query');
 const pool = require('../config/db');
 const bcrypt = require('bcrypt');
+const { sendOTPEmail } = require('./email.service');
 
 const generateOTP = () => {
   return Math.floor(100000 + Math.random() * 900000).toString();
@@ -21,9 +22,26 @@ const areaService = require('./area.service');  if (data.lat && data.lng) {    c
   const otp = generateOTP();
   const expires_at = new Date(Date.now() + 5 * 60 * 1000);
 
-  await authQuery.saveOTP(data.gmail, otp, 'registration', expires_at);
+  const otpResult = await authQuery.saveOTP(
+    data.gmail,
+    otp,
+    'registration',
+    expires_at
+  );
 
-  return { message: 'OTP sent', otp };
+  const otpId = otpResult.rows[0].id;
+
+  try {
+    await sendOTPEmail(data.gmail, otp, 'registration');
+  } catch (err) {
+    await authQuery.markOTPVerified(otpId);
+    console.error('REGISTRATION OTP EMAIL ERROR:', err.message);
+    throw new Error('Unable to send OTP email. Please try again.');
+  }
+
+  return {
+    message: 'OTP sent'
+  };
 };
 
 // VERIFY + CREATE USER

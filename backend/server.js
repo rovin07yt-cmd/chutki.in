@@ -67,6 +67,7 @@ app.use("/user/cart", userCartRoutes);
 app.use("/user/order", userOrderRoutes);
 app.use("/user/profile", userProfileRoutes);
 app.use('/auth', authRoutes);
+app.use('/forgot-password', require('./routes/forgot_password.routes'));
 app.use('/admin', adminRoutes);
 app.use("/admin/settings", adminSettingsRoutes);
 app.use("/admin/dashboard", adminDashboardRoutes);

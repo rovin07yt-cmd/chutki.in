@@ -2,28 +2,83 @@
 <html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Verify</title>
+  <title>Verify OTP</title>
   <link rel="stylesheet" href="style.css">
+
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
 </head>
+
 <body>
 
+<div class="header">
+  <img src="./images/logo.png" class="logo">
+  <div class="text">
+    <div class="title">Chutki</div>
+    <div class="subtitle">Food Delivery in a Chutki</div>
+  </div>
+</div>
+
 <div class="container">
+  <div class="card">
 
-<img src="images/logo.png" class="logo">
+    <h2>Verify OTP</h2>
 
-<div class="title">Verify OTP</div>
+    <div
+      id="gmailMessage"
+      style="
+        text-align:center;
+        margin-bottom:16px;
+        font-size:14px;
+        color:#555;
+        line-height:1.5;
+      "
+    ></div>
 
-<div class="card">
+    <input
+      id="otp"
+      type="text"
+      inputmode="numeric"
+      maxlength="6"
+      autocomplete="one-time-code"
+      placeholder="Enter 6-digit OTP"
+    >
 
-<input id="otp" placeholder="Enter OTP">
+    <button type="button" onclick="verify()">Verify OTP</button>
 
-<button onclick="verify()">Verify</button>
+    <div
+      class="link"
+      style="
+        margin-top:16px;
+        color:#777;
+        font-size:13px;
+      "
+    >
+      OTP is valid for 5 minutes
+    </div>
 
+    <div class="link">
+      Already have an account?
+      <span onclick="location.href='login.html'">Login</span>
+    </div>
+
+  </div>
 </div>
 
-</div>
+<script>
+const gmail = localStorage.getItem("gmail");
 
-<script src="/auth/auth.js?v=999"></script>
+const message = document.getElementById("gmailMessage");
+
+if (gmail) {
+  message.textContent = "OTP sent to your Gmail: " + gmail + "\nCheck the Spam folder of your Gmail for the OTP"; message.style.whiteSpace = "pre-line";
+} else {
+  message.textContent = "OTP sent to your Gmail\nCheck the Spam folder of your Gmail for the OTP"; message.style.whiteSpace = "pre-line";
+}
+</script>
+
+<script src="/auth/auth.js?v=1000"></script>
 
 </body>
 </html>

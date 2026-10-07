@@ -52,7 +52,7 @@ async function sendOTP() {
 
     if (data.success) {
       // ✅ SHOW OTP
-      alert("OTP: " + data.data.otp);
+      alert("OTP sent to your Gmail: " + email);
 
       localStorage.setItem("gmail", email);
       localStorage.setItem("name", name);
