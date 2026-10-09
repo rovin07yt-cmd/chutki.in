@@ -17,7 +17,7 @@ const sendResetOTP = async (gmail) => {
   const userResult = await query.findUserByGmail(gmail);
 
   if (userResult.rows.length === 0) {
-    throw new Error('Gmail not found');
+    throw new Error('Please enter a correct Gmail');
   }
 
   // Prevent resend before 30 seconds

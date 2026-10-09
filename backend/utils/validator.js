@@ -6,7 +6,14 @@ const validateRegister = (data) => {
   if (!data.role) throw new Error('Role is required');
 
   // normalize gmail
-  data.gmail = data.gmail.toLowerCase();
+  data.gmail = data.gmail.toLowerCase().trim();
+
+  // Gmail format validation
+  const gmailPattern = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+
+  if (!gmailPattern.test(data.gmail)) {
+    throw new Error('Please enter a correct Gmail address');
+  }
 
   // role-based validation
   if (data.role === 'user') {

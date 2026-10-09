@@ -16,7 +16,7 @@ const areaService = require('./area.service');  if (data.lat && data.lng) {    c
 
   const existing = await authQuery.findUser(data.gmail);
   if (existing.rows.length > 0) {
-    throw new Error('User already exists');
+    throw new Error('Gmail already registered. Please click on Forgot Password.');
   }
 
   const otp = generateOTP();
@@ -60,6 +60,10 @@ const verifyAndCreateUser = async (data) => {
   validateRegister(data);
 const areaService = require('./area.service');  if (data.lat && data.lng) {    const allowed = await areaService.isServiceable(data.lat, data.lng);  }
   data.gmail = data.gmail.toLowerCase();
+  const existing = await authQuery.findUser(data.gmail);
+  if (existing.rows.length > 0) {
+    throw new Error("Gmail already registered. Please click on Forgot Password.");
+  }
 
   const client = await pool.connect();
 
