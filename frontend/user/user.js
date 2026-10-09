@@ -1,3 +1,17 @@
+function requireUserLogin(action) {
+  if (window.session && window.session.isLoggedIn()) {
+    return true;
+  }
+
+  const message = action
+    ? `Please log in first to ${action}, or register if you don't have an account.`
+    : "Please log in first, or register if you don't have an account.";
+
+  alert(message);
+  window.location.href = "/auth/login.html";
+  return false;
+}
+
 function toggleSidebar(){
 document.getElementById("sidebar").classList.toggle("active");
 document.getElementById("overlay").classList.toggle("active");

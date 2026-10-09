@@ -13,7 +13,8 @@ const searchAll = async (q) => {
     FROM food_items f
     JOIN restaurant_profiles r 
       ON r.user_id = f.restaurant_id
-    WHERE LOWER(f.name) LIKE LOWER($1)
+    WHERE r.is_approved = true
+      AND LOWER(f.name) LIKE LOWER($1)
 
     UNION
 
@@ -26,7 +27,8 @@ const searchAll = async (q) => {
       r.is_online,
       true AS is_available
     FROM restaurant_profiles r
-    WHERE LOWER(r.restaurant_name) LIKE LOWER($1)
+    WHERE r.is_approved = true
+      AND LOWER(r.restaurant_name) LIKE LOWER($1)
 
     ORDER BY 
       is_online DESC,

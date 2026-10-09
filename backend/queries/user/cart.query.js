@@ -11,6 +11,9 @@ const getFoodDetails = async (food_id) => {
       p.mrp
     FROM food_items f
     JOIN food_prices p ON f.id = p.food_id
+    JOIN restaurant_profiles rp
+      ON rp.user_id = f.restaurant_id
+     AND rp.is_approved = true
     WHERE f.id = $1
   `, [food_id]);
 };

@@ -5,6 +5,10 @@ let selectedLng = null;
 
 export async function render() {
 
+  if (!requireUserLogin("select a delivery address")) {
+    return;
+  }
+
   const content = document.getElementById("content");
 
   content.innerHTML = `

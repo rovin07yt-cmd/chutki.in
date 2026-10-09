@@ -22,7 +22,8 @@ const updateSettings = async (data) => {
       max_orders_per_rider = $7,
       max_items_per_rider = $8,
       other_charge_name = $9,
-      other_charge_percent = $10
+      other_charge_percent = $10,
+      extra_per_restaurant = $11
     WHERE id = 1
     RETURNING *
     `,
@@ -36,7 +37,8 @@ const updateSettings = async (data) => {
       data.max_orders_per_rider,
       data.max_items_per_rider,
       data.other_charge_name,
-      data.other_charge_percent
+      data.other_charge_percent,
+      data.extra_per_restaurant
     ]
   );
 };

@@ -132,10 +132,13 @@ export async function render() {
 
       const selectedAddressId = localStorage.getItem("selected_address_id");
       const selectedAddressLabel = localStorage.getItem("selected_address_label");
+      const isLoggedIn = window.session && window.session.isLoggedIn();
 
-      document.getElementById("selectedAddressBox").innerHTML = selectedAddressId
-      ? `<div onclick="loadPage('address')" style="padding:12px;border:1px solid #ddd;border-radius:10px;background:#fff;cursor:pointer;font-weight:600;">📍 ${selectedAddressLabel || "Address"} <span style="float:right;color:#e53935;">Change →</span></div>`
-      : `<div onclick="loadPage('address')" style="padding:12px;border:1px solid #f44336;border-radius:10px;background:#fff3f3;color:#f44336;cursor:pointer;font-weight:600;">📍 Select Delivery Address →</div>`;
+      document.getElementById("selectedAddressBox").innerHTML = isLoggedIn
+      ? (selectedAddressId
+        ? `<div onclick="loadPage('address')" style="padding:12px;border:1px solid #ddd;border-radius:10px;background:#fff;cursor:pointer;font-weight:600;">📍 ${selectedAddressLabel || "Address"} <span style="float:right;color:#e53935;">Change →</span></div>`
+        : `<div onclick="loadPage('address')" style="padding:12px;border:1px solid #f44336;border-radius:10px;background:#fff3f3;color:#f44336;cursor:pointer;font-weight:600;">📍 Select Delivery Address →</div>`)
+      : `<div onclick="requireUserLogin('select a delivery address')" style="padding:12px;border:1px solid #f44336;border-radius:10px;background:#fff3f3;color:#f44336;cursor:pointer;font-weight:600;">📍 Log in to select delivery address →</div>`;
 
 
   } catch (err) {
@@ -188,8 +191,7 @@ window.placeOrder = async function() {
 
   const user = localStorage.getItem("user");
 
-  if (!user) {
-    location.href = "/auth/login.html";
+  if (!requireUserLogin("place an order")) {
     return;
   }
 

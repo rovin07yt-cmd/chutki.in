@@ -43,6 +43,17 @@ export function renderWalletSettings() {
         </div>
 
         <div class="wallet-field">
+          <label for="walletExtraPerRestaurant">Extra restaurant charge (₹)</label>
+          <input
+            id="walletExtraPerRestaurant"
+            type="number"
+            min="0"
+            step="0.01"
+            value="${inputValue(settings.extra_per_restaurant)}"
+          >
+        </div>
+
+        <div class="wallet-field">
           <label for="walletAdminCommission">Admin commission (%)</label>
           <input
             id="walletAdminCommission"
@@ -162,6 +173,7 @@ async function saveWalletSettings() {
 
   const data = {
     delivery_charge: getNumber("walletDeliveryCharge"),
+    extra_per_restaurant: getNumber("walletExtraPerRestaurant"),
     admin_commission_percent: getNumber("walletAdminCommission"),
     gst_percent: getNumber("walletGST"),
     other_charge_name:
@@ -176,6 +188,7 @@ async function saveWalletSettings() {
 
   const numericFields = [
     data.delivery_charge,
+    data.extra_per_restaurant,
     data.admin_commission_percent,
     data.gst_percent,
     data.other_charge_percent,

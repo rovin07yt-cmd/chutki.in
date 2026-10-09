@@ -60,6 +60,7 @@ export default async function(content){
                 <th>Order</th>
                 <th>Type</th>
                 <th>Customer</th>
+                <th>Navigate</th>
               </tr>
             </thead>
             <tbody>
@@ -69,6 +70,13 @@ export default async function(content){
                   <td>#${stop.order_id}</td>
                   <td>${stop.point_type}</td>
                   <td>${stop.customer_name || "-"}</td>
+                  <td>
+                    <a
+                      href="https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(`${stop.lat},${stop.lng}`)}&travelmode=driving"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >Open in Google Maps</a>
+                  </td>
                 </tr>
               `).join("")}
             </tbody>
@@ -131,7 +139,16 @@ export default async function(content){
       stop.lng
     ],{icon})
     .addTo(map)
-    .bindPopup(text);
+    .bindPopup(`
+      <div>
+        <strong>${text}</strong><br>
+        <a
+          href="https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(`${stop.lat},${stop.lng}`)}&travelmode=driving"
+          target="_blank"
+          rel="noopener noreferrer"
+        >Open in Google Maps</a>
+      </div>
+    `);
 
   });
 

@@ -49,6 +49,7 @@ const getHomeFoods = async () => {
     FROM food_items f
     JOIN restaurant_profiles r 
       ON r.user_id = f.restaurant_id
+    WHERE r.is_approved = true
 
     ORDER BY 
       r.is_online DESC,
